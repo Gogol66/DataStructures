@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DataStructuresandAlgorithms.DataStructures.LinkedLists
+namespace DataStructuresandAlgorithms
 {
     public class Node
     {
@@ -13,7 +13,6 @@ namespace DataStructuresandAlgorithms.DataStructures.LinkedLists
         public Node(object data)
         {
             this.data = data;
-            next = null;
         }
     }
     class LinkedList
@@ -44,38 +43,38 @@ namespace DataStructuresandAlgorithms.DataStructures.LinkedLists
             }
             currentNode.next = newNode;
         }
-        public bool Remove(object data)
+        public void Remove(object data)
         {
             if (rootNode == null)
             {
-                Console.WriteLine("The list is empty. Nothing to remove.");
-                return false;
+                Console.WriteLine("The list is empty.");
+                return;
             }
-
-            // Case: The rootNode node holds the data
             if (rootNode.data == data)
             {
-                Console.WriteLine("Removing {0} from the rootNode of the list.", data);
                 rootNode = rootNode.next;
-                return true;
+                return;
             }
-
-            Node current = rootNode;
-            while (current.next != null && current.next.data != data)
+            Node currentNode = rootNode;
+            while (currentNode.next != null && !currentNode.data.Equals(data))
             {
-                current.next = current.next.next;
+                currentNode = currentNode.next;
             }
-
-            current.next = current.next.next;
-            return false;
+            if (currentNode.next == null)
+            {
+                Console.WriteLine("Node with data not found");
+            }
+            else
+            {
+                currentNode.next = currentNode.next.next;
+            }
         }
-
         public void Display()
         {
             Node currentNode = rootNode;
             while (currentNode != null)
             {
-                Console.WriteLine(currentNode.data);
+                Console.WriteLine(currentNode.data + " ");
                 currentNode = currentNode.next;
             }
         }
