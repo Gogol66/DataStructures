@@ -18,6 +18,8 @@ namespace DataStructuresandAlgorithms
             list.AddLast(50);
             list.Remove(30);
             list.Display();
+            int[] array = { 10, 20, 30, 40, 50 };
+            BinarySearch.Search(array, 40);
             Console.ReadKey();
         }
     }
