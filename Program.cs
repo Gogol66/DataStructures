@@ -20,6 +20,12 @@ namespace DataStructuresandAlgorithms
             list.Display();
             int[] array = { 10, 20, 30, 40, 50 };
             BinarySearch.Search(array, 40);
+            int[] buffer = { 110, 100, 90, 80, 70, 60, 50, 40, 30, 20, 10 };
+            BubbleSort.Sort(buffer);
+            foreach (var item in buffer)
+            {
+                Console.WriteLine(item + " ");
+            }
             Console.ReadKey();
         }
     }
